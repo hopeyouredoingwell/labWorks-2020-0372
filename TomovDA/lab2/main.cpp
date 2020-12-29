@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 int main() {
     const int array_size = 5;
@@ -18,21 +18,16 @@ int main() {
     std::cout << std::endl;
 
     int temp;
-    bool done = false;
-
-    while (!done) {
-        done = true;
-        int i = 0;
-        while (i < array_size - 1) {
-            while (arr[i] > arr[i + 1]) {
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                done = false;
+    
+        int j = 0;
+        while (j < array_size - 1) {
+            while (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
-            i++;
+            j++;
         }
-    }
 
     int arr_even[arr_even_size];
     for (int i = 0; i < arr_even_size; i++) {
@@ -65,9 +60,9 @@ int main() {
         }
     }
 
-    int min = arr_even[0];
-    for (int i = 0; i < array_size; i++) {
-        if (arr_even[i] != 0 && min > arr_even[i]) {
+    int min = max;
+    for (int i = 0; i < arr_even_size; i++) {
+        if (min > arr_even[i] && arr_even[i] != 0) {
             min = arr_even[i];
         }
     }
